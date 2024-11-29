@@ -1,13 +1,13 @@
 {% set name = "pygbif" %}
-{% set version = "0.6.4" %}
+{% set version = "0.6.5" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pygbif-{{ version }}.tar.gz
-  sha256: 92abe83814ec348649710a97f8f5130410dd6fae71d879ff24c7c81f54c38ab7
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pygbif-{{ version }}.tar.gz
+  sha256: 4eaaf032d23eaee514061d5ac902c278c3bd54d061cd55d2a0209b072aaf3343
 
 build:
   noarch: python
