@@ -1,0 +1,50 @@
+schema_version: 1
+
+context:
+  version: "0.7.0"
+
+package:
+  name: pygbif
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/p/pygbif/pygbif-${{ version }}.tar.gz
+  sha256: f287fab6a70d5e2f26ce0dc7ad6e3d47113c4c86d40d0b8f631596283d8bbf35
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - requests >2.7
+    - requests-cache
+    - geojson-rewind
+    - geomet
+    - appdirs >=1.4.3
+    - matplotlib-base
+
+tests:
+  - python:
+      imports:
+        - pygbif
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+
+about:
+  summary: Python client for GBIF
+  license: MIT
+  license_file: LICENSE
+  homepage: http://github.com/gbif/pygbif
+
+extra:
+  recipe-maintainers:
+    - ocefpaf
